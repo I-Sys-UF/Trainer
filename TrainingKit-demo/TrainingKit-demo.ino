@@ -1,3 +1,6 @@
+/* ライブラリのインクルード */
+#include <MsTimer2.h>
+
 /* デバッグ処理の有効無効を制御する定義文 */
 #define DEBUG
 
@@ -17,15 +20,14 @@ volatile uint8_t LED_VRAM = 0;
 void setup() {
   GPIO_Init();
   LED_Init();
+  MsTimer2_Init();
+
   delay(1000);
 }
 
 void loop() {
-  for(uint8_t i = 0; i < sizeof(num_to_bin); i++) {
+  for(uint8_t i = 0; i < 10; i++) {
     LED_VRAM = i;
-    /* 7 セグメント LED を光らせる */
-    LED_Flash();
-
     delay(500);
   }
 }
@@ -40,6 +42,11 @@ void GPIO_Init(void) {
 /* シフトレジスタの中身をクリアする関数 */
 void LED_Init(void) {
   LED_OUT(0x00);
+}
+
+void MsTimer2_Init(void) {
+  MsTimer2::set(20, LED_Flash);
+  MsTimer2::start();
 }
 
 /* シフトレジスタにデータを送る */
