@@ -1,8 +1,10 @@
 /* ライブラリのインクルード */
 #include <MsTimer2.h>
 
-/* デバッグ処理の有効無効を制御する定義文 */
-#define DEBUG
+/* 変えて遊んでもいい定数 */
+#define waitTime 500
+#define TimerInt  20
+#define limit     10  // これは 1 ~ 16 までにしてほしい
 
 /* ピンアサインの定義 */
 #define ShiftRegister_IN  4
@@ -26,9 +28,9 @@ void setup() {
 }
 
 void loop() {
-  for(uint8_t i = 0; i < 10; i++) {
+  for(uint8_t i = 0; i < limit; i++) {
     LED_VRAM = i;
-    delay(500);
+    delay(waitTime));
   }
 }
 
@@ -45,7 +47,7 @@ void LED_Init(void) {
 }
 
 void MsTimer2_Init(void) {
-  MsTimer2::set(20, LED_Flash);
+  MsTimer2::set(TimerInt, LED_Flash);
   MsTimer2::start();
 }
 
@@ -61,10 +63,4 @@ void LED_Flash(void) {
   }
   digitalWrite(ShiftRegister_SET, HIGH);
   digitalWrite(ShiftRegister_SET,  LOW);
-}
-
-/* ラッパー関数 */
-void LED_OUT(uint8_t data) {
-  LED_VRAM = data;
-  LED_Flash();
 }
