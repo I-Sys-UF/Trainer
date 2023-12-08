@@ -2,6 +2,10 @@
 #define SW1 5
 #define SW2 6
 
+/* LED と，繋がっている GPIO の対応を定義*/
+#define LED_D1 10
+#define LED_D2 11
+
 /* スイッチの状態ごと GPIO の状態を定義しておく */
 #define SW_isPressed   LOW
 #define SW_isReleased HIGH
@@ -39,10 +43,16 @@ void loop() {
   /* "押された瞬間" はつまり 一つ前は押されてなくて今は押されているということになる */
   if((SW1_Status_Old == isReleased) && (SW1_Status_New == isPressed)) {
     counter++;  // これで 1 加算される（インクリメント演算子）
+    digitalWrite(LED_D1, HIGH);  // 押された瞬間に LED を光らせる
+  }else {
+    digitalWrite(LED_D1, HIGH);  // LED を消す
   }
 
   if((SW1_Status_Old == isReleased) && (SW1_Status_New == isPressed)) {
     counter--;  // これで 1 減算される（デクリメント演算子）
+    digitalWrite(LED_D2, HIGH);  // 押された瞬間に LED を光らせる
+  }else {
+    digitalWrite(LED_D1,  LOW);  // LED を消す
   }
 
   /* オーバーフローを防止する */
