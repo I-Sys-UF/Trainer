@@ -30,7 +30,7 @@ void setup() {
 void loop() {
   for(uint8_t i = 0; i < limit; i++) {
     LED_VRAM = num_to_bin[i];
-    delay(waitTime));
+    delay(waitTime);
   }
 }
 
@@ -55,6 +55,11 @@ void MsTimer2_Init(void) {
 void LED_Flash(void) {
   uint8_t data = LED_VRAM;
   
+  LED_OUT(data);
+}
+
+
+void LED_OUT(uint8_t data) {
   /* 独自実装の shiftOut 関数 */
   for(uint8_t i = 0; i < 8; i++) {
     digitalWrite(ShiftRegister_IN , (data & 1 << i) == 0 ? 0 : 1);

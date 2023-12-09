@@ -9,7 +9,7 @@ void setup() {
   delay(250);
 
   /* INDEX の値を 0 ~ 9 で変えて実行してみよう */
-  uint8_t INDEX = 5;
+  uint8_t INDEX = 4;
   char buffer[32];  // 実はこれ（文字列）も配列でできている
   sprintf(buffer, "INDEX = %d\narray[INDEX] = %d\n", INDEX, array[INDEX]);
   Serial.print(buffer);

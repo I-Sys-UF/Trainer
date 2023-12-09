@@ -15,12 +15,11 @@ void setup() {
   /* つまり， float a = 1.5; float n = f(a); などとしても問題ない */
 
   /* 計算結果をシリアルモニタに表示する */
-  char buffer[32];                            // バッファを用意する
-  sprintf(buffer, "f(%.8f) = %.8f\n", x, y);  // 文字列を加工し，バッファに保存する
-  Serial.print(buffer);                       // バッファの中身を表示する
-  /* この 3 行のコードについて理解する必要は特になく，とりあえず実行すればいい */
-  /* が，知りたいという向上心をお持ちの方は遠慮なく聞いてほしい */
-}
+  Serial.print("f(");
+  Serial.print(x);
+  Serial.print(") = ");
+  Serial.print(y);
+}  
 
 void loop() {
 }

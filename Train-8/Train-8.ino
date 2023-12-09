@@ -5,6 +5,11 @@
 #define waitTime 500
 #define TimerInt  20
 
+/* ピンアサインの定義 */
+#define ShiftRegister_IN  4
+#define ShiftRegister_CLK 2
+#define ShiftRegister_SET 3
+
 /* 数字をバイナリに変換する配列 */
 uint8_t num_to_bin[] = {0b11111100, 0b01100000, 0b11011010, 0b11110010,   // 0, 1, 2, 3
                         0b01100110, 0b10110110, 0b10111110, 0b11100100,   // 4, 5, 6, 7
@@ -24,7 +29,7 @@ void setup() {
 void loop() {
   for(uint8_t i = 0; i < sizeof(num_to_bin); i++) {
     LED_VRAM = num_to_bin[i];
-    delay(waitTime));
+    delay(waitTime);
   }
 }
 
@@ -49,6 +54,11 @@ void MsTimer2_Init(void) {
 void LED_Flash(void) {
   uint8_t data = LED_VRAM;
   
+  LED_OUT(data);
+}
+
+
+void LED_OUT(uint8_t data) {
   /* 独自実装の shiftOut 関数 */
   for(uint8_t i = 0; i < 8; i++) {
     digitalWrite(ShiftRegister_IN , (data & 1 << i) == 0 ? 0 : 1);
