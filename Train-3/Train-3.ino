@@ -19,6 +19,7 @@ void setup() {
   Serial.print(x);
   Serial.print(") = ");
   Serial.print(y);
+  Serial.print("\n");
 }  
 
 void loop() {
