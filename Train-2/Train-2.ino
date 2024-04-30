@@ -1,6 +1,6 @@
 /* LED と，繋がっている GPIO の対応を定義 */
-#define LED_D1 10
-#define LED_D2 11
+#define LED_D1 11
+#define LED_D2 10
 
 /* スイッチと，繋がっている GPIO の対応を定義 */
 #define SW1 5
