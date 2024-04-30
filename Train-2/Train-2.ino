@@ -27,9 +27,9 @@ void setup() {
   }
 
   if(false) {
-    digitalWrite(LED_D1, HIGH);
+    digitalWrite(LED_D2, HIGH);
   }else {
-    digitalWrite(LED_D1,  LOW);
+    digitalWrite(LED_D2,  LOW);
   }
 
   /* if 文の挙動が理解できたら下の行をコメントアウトしよう */
