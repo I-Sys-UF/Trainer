@@ -58,7 +58,6 @@ void LED_Flash(void) {
   LED_OUT(data);
 }
 
-
 void LED_OUT(uint8_t data) {
   /* 独自実装の shiftOut 関数 */
   for(uint8_t i = 0; i < 8; i++) {
