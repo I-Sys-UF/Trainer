@@ -29,8 +29,8 @@
   - 部品と基板は予め人数分用意しておく
 - リポジトリを丸ごとダウンロードする
 - デモプログラムを動かす
-  - [資料](./TraininKit-demo/README.md)を見ながら進める
-  - `./TrainingKit-demo/TrainingKit-demo.ino` を実行する
+  - [資料](./demo/README.md)を見ながら進める
+  - `./demo/demo.ino` を実行する
   - いくつか数字を変えてみる（`#define hoge fuga` の箇所のみ）
 - Train-1 を動かす
   - [資料](./Train-1/README.md)を見ながら進める
