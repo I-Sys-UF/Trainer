@@ -25,4 +25,4 @@
 
 ## 進め方
 
-
+<https://i-sys-uf.github.io/docs/edu/getting_started_programming.html> を読みながら進めてください
