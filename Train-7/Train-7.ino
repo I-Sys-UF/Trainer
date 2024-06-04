@@ -39,7 +39,8 @@ void setup() {
 void loop() {
   /* スイッチの状態を保存する変数を用意する */
   /* 頭の static については正常に動作させるために必要なものと思っておこう */
-  static uint8_t SW1_Status_Old, SW1_Status_New, SW2_Status_Old, SW2_Status_New;
+  static uint8_t SW1_Status_New, SW2_Status_New;
+         uint8_t SW1_Status_Old, SW2_Status_Old;
 
   /* カウンター変数を用意する．頭の static については以下同文 */
   static int8_t counter = 0;

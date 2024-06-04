@@ -17,7 +17,7 @@ void setup() {
 
 void loop() {
   /* このようにして書くと中のコードが 16 回繰り返される */
-  for(uint8_t i = 0; i < sizeof(num_to_bin); i++) {
+  for(size_t i = 0; i < sizeof(num_to_bin); i++) {
     LED_OUT(num_to_bin[i]);
     delay(500);
   }
